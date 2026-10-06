@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>ゲンバカエル｜建築・土木の施工管理のキャリア相談</title>
+<meta name="description" content="施工管理を辞めるな、会社を変えろ。建築・土木の施工管理技術者向け。10問・約3分のホワイト度チェックで、今の職場の働きやすさを確かめよう。">
+<!-- 公開準備が整ったら（LINE URL・許可番号の記載後）下の noindex を削除する -->
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ゲンバカエル">
+<meta property="og:title" content="施工管理を辞めるな、会社を変えろ。｜ゲンバカエル">
+<meta property="og:description" content="建築・土木の施工管理技術者向け。10問・約3分のホワイト度チェックで、今の職場の働きやすさを確かめよう。">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='43' rx='21' ry='15' fill='%235EA56A' stroke='%231B1A12' stroke-width='2'/%3E%3Ccircle cx='21' cy='34' r='6' fill='%23fff' stroke='%231B1A12' stroke-width='2'/%3E%3Ccircle cx='22' cy='35' r='2.6' fill='%231B1A12'/%3E%3Ccircle cx='43' cy='34' r='6' fill='%23fff' stroke='%231B1A12' stroke-width='2'/%3E%3Ccircle cx='42' cy='35' r='2.6' fill='%231B1A12'/%3E%3Cpath d='M15 25 A17 15 0 0 1 49 25 Z' fill='%23F2B705' stroke='%231B1A12' stroke-width='2'/%3E%3Crect x='10' y='24' width='44' height='5' rx='2' fill='%23F2B705' stroke='%231B1A12' stroke-width='2'/%3E%3C/svg%3E">
+<script>
+  // ===== 計測設定 =====
+  // GA4の測定ID（例：G-XXXXXXXXXX）を入れると計測が始まる。空のままなら何も読み込まない
+  window.GA_ID = '';
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  if (window.GA_ID) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', window.GA_ID);
+  }
+  // ページ内のイベントは dataLayer にも積むので、後からGTMやMetaピクセルに載せ替えられる
+  window.track = function (name, params) {
+    params = params || {};
+    dataLayer.push(Object.assign({ event: name }, params));
+    if (window.GA_ID) gtag('event', name, params);
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Dela+Gothic+One&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+/* Layout: one mobile-first column (max 720px). Hero = 工事黒板 (construction photo board). Diagnosis = ホワイト度チェック behind a strip of caution tape. Fixed CTA bar at the bottom. */
+:root {
+  --bg: #ECEEE9;
+  --surface: #F8F9F5;
+  --ink: #18211C;
+  --muted: #59635C;
+  --line: #CBD1C8;
+  --board: #23392D;
+  --board-frame: #A3ABA2;
+  --board-ink: #F1EFE3;
+  --board-line: rgba(241, 239, 227, .26);
+  --hazard: #F2B705;
+  --hazard-ink: #1B1A12;
+  --line-green: #06C755;
+  --on-line: #FFFFFF;
+  --ok: #2E7A4C;
+  --warn: #B87A00;
+  --danger: #B5402B;
+  --on-lv: #FFFFFF;
+  --frog: #5EA56A;
+  --eye: #FFFFFF;
+  --font-display: "Dela Gothic One", "Hiragino Kaku Gothic StdN", "Yu Gothic", sans-serif;
+  --font-body: "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+  --font-chalk: "Klee One", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613;
+    --surface: #19201B;
+    --ink: #E5EAE3;
+    --muted: #9BA59D;
+    --line: #2D3730;
+    --board: #1E3328;
+    --board-frame: #4C564E;
+    --board-ink: #EEECDF;
+    --board-line: rgba(238, 236, 223, .22);
+    --ok: #5DBB85;
+    --warn: #E3AD3E;
+    --danger: #E47A63;
+    --on-lv: #111613;
+    --frog: #6CBB79;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613;
+  --surface: #19201B;
+  --ink: #E5EAE3;
+  --muted: #9BA59D;
+  --line: #2D3730;
+  --board: #1E3328;
+  --board-frame: #4C564E;
+  --board-ink: #EEECDF;
+  --board-line: rgba(238, 236, 223, .22);
+  --ok: #5DBB85;
+  --warn: #E3AD3E;
+  --danger: #E47A63;
+  --on-lv: #111613;
+  --frog: #6CBB79;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 20px; padding-block: 0 128px; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand-name { font-family: var(--font-display); font-size: 21px; letter-spacing: .04em; line-height: 1.2; }
+.brand-sub { display: block; font-size: 11px; color: var(--muted); letter-spacing: .06em; line-height: 1.4; }
+.frog .helmet { fill: var(--hazard); stroke: var(--hazard-ink); stroke-width: 2; }
+.frog .face { fill: var(--frog); stroke: var(--hazard-ink); stroke-width: 2; }
+.frog .eye { fill: var(--eye); stroke: var(--hazard-ink); stroke-width: 2; }
+.frog .pupil { fill: var(--hazard-ink); }
+.frog .mouth { fill: none; stroke: var(--hazard-ink); stroke-width: 2; stroke-linecap: round; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 22px; border-radius: 6px; border: 2px solid transparent;
+  font-family: var(--font-body); font-weight: 700; font-size: 16px; line-height: 1.3;
+  text-decoration: none; cursor: pointer; text-align: center;
+}
+.btn:focus-visible { outline: 3px solid var(--hazard); outline-offset: 3px; }
+.btn-primary { background: var(--hazard); color: var(--hazard-ink); border-color: var(--hazard-ink); }
+.btn-line { background: var(--line-green); color: var(--on-line); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-sm { min-height: 40px; padding: 0 14px; font-size: 14px; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+
+/* Hero */
+.hero { padding-block: 12px 0; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .12em; color: var(--muted); }
+.hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 9.4vw, 58px); line-height: 1.22; letter-spacing: .02em; margin-top: 10px; }
+.lead { font-size: 17px; max-width: 34em; margin-top: 16px; }
+
+.board {
+  margin-top: 24px;
+  background-color: var(--board);
+  background-image:
+    radial-gradient(ellipse at 18% 30%, rgba(255,255,255,.06), transparent 55%),
+    radial-gradient(ellipse at 80% 75%, rgba(255,255,255,.05), transparent 50%);
+  color: var(--board-ink);
+  border: 10px solid var(--board-frame);
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+.board table { width: 100%; border-collapse: collapse; font-family: var(--font-chalk); }
+.board th {
+  width: 5.2em; text-align: left; font-weight: 600; font-size: 14px; letter-spacing: .14em;
+  padding: 12px 10px 12px 0; vertical-align: middle;
+  border-right: 1px solid var(--board-line); border-bottom: 1px solid var(--board-line);
+}
+.board td { font-size: 21px; font-weight: 600; line-height: 1.45; padding: 12px 0 12px 14px; border-bottom: 1px solid var(--board-line); }
+.board tr:last-child th, .board tr:last-child td { border-bottom: 0; }
+.board td.date { font-variant-numeric: tabular-nums; letter-spacing: .06em; }
+
+.jobpick { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.jobpick-label { font-size: 14px; font-weight: 700; }
+.seg { display: inline-grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); border-radius: 6px; overflow: hidden; }
+.seg label { position: relative; }
+.seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.seg span { display: block; padding: 8px 16px; font-weight: 700; font-size: 15px; cursor: pointer; white-space: nowrap; }
+.seg input:checked + span { background: var(--ink); color: var(--bg); }
+.seg input:focus-visible + span { outline: 3px solid var(--hazard); outline-offset: -3px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.trust { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+/* Sections */
+section { padding-block: 64px 0; }
+h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 6.2vw, 32px); line-height: 1.4; margin-top: 6px; }
+.sec-lead { margin-top: 12px; max-width: 36em; }
+.cite { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; min-width: 0; }
+.stat .k { font-size: 13px; color: var(--muted); font-weight: 700; }
+.stat .v { font-family: var(--font-display); font-size: 30px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.stat .u { font-size: 14px; font-family: var(--font-body); font-weight: 700; margin-left: 2px; }
+.stat .s { font-size: 12px; color: var(--muted); line-height: 1.5; }
+@media (max-width: 560px) {
+  .stats { grid-template-columns: 1fr; gap: 8px; }
+  .stat { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 12px; padding: 12px 16px; }
+  .stat .s { grid-column: 1 / -1; }
+}
+
+/* KY sheet */
+.ky { margin-top: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.tape { height: 12px; background: repeating-linear-gradient(-45deg, var(--hazard) 0 14px, var(--hazard-ink) 14px 28px); }
+.ky-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 16px; }
+.ky-title { font-family: var(--font-display); font-size: 20px; letter-spacing: .04em; }
+.ky-job { font-size: 13px; color: var(--muted); }
+.prog { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.prog-track { width: 96px; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.prog-bar { display: block; height: 100%; width: 0; background: var(--board); transition: width .25s; }
+.q { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 18px 16px; min-width: 0; }
+.q legend { float: left; width: 100%; padding: 0; font-weight: 700; font-size: 16px; line-height: 1.6; display: flex; gap: 10px; }
+.qn { font-family: var(--font-display); font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; flex: none; }
+.qnote, .opts { clear: both; }
+.qnote { font-size: 13px; color: var(--muted); padding-top: 2px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 10px; }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.opt span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px;
+  border: 1.5px solid var(--line); border-radius: 6px; background: var(--bg);
+  cursor: pointer; font-size: 15px; line-height: 1.4;
+}
+.opt input:checked + span { background: var(--board); color: var(--board-ink); border-color: var(--board); font-weight: 700; }
+.opt input:focus-visible + span { outline: 3px solid var(--hazard); outline-offset: 2px; }
+.ky-foot { border-top: 1px solid var(--line); padding: 16px; display: grid; gap: 8px; }
+.ky-foot .btn { width: 100%; }
+.hint { font-size: 13px; color: var(--muted); text-align: center; }
+
+/* Result */
+.result { margin-top: 16px; background: var(--surface); border: 2px solid var(--lv, var(--line)); border-radius: 6px; padding: 20px; display: grid; gap: 14px; scroll-margin-top: 16px; }
+.result.lv1 { --lv: var(--ok); }
+.result.lv2 { --lv: var(--warn); }
+.result.lv3 { --lv: var(--danger); }
+.result.lv4 { --lv: var(--danger); }
+.res-top { display: flex; align-items: center; gap: 14px; }
+.res-top svg { flex: none; }
+.badge { display: inline-block; background: var(--lv); color: var(--on-lv); font-family: var(--font-display); font-size: 14px; letter-spacing: .06em; padding: 3px 10px; border-radius: 4px; }
+.res-title { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.4; margin-top: 6px; }
+.meter-row { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.meter { flex: 1; height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; background: var(--lv); transition: width .6s ease-out; }
+.res-h { font-weight: 700; font-size: 15px; }
+.issues { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.issues li { padding: 12px 14px; background: var(--bg); border-radius: 6px; display: grid; gap: 2px; }
+.issues strong { font-size: 15px; }
+.issues span { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.inc { font-size: 14px; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 6px; }
+.result .btn { width: 100%; }
+
+/* Reasons / checklist */
+.reasons { display: grid; gap: 0; margin-top: 20px; }
+.reason { padding-block: 18px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.reason:last-child { border-bottom: 1px solid var(--line); }
+.tag { justify-self: start; font-size: 12px; font-weight: 700; letter-spacing: .06em; padding: 2px 8px; border: 1.5px solid var(--ink); border-radius: 4px; }
+.reason h3 { font-size: 18px; line-height: 1.5; }
+.reason p { color: var(--muted); }
+
+.checks { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; }
+.checks li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.checks li::before { content: ""; width: 20px; height: 20px; margin-top: 4px; border: 2px solid var(--ink); border-radius: 3px; }
+
+/* LINE block */
+.line-box { margin-top: 20px; background: var(--surface); border: 2px solid var(--line-green); border-radius: 6px; padding: 20px; display: grid; gap: 16px; }
+.gets { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gets li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; }
+.gets li::before { content: ""; width: 10px; height: 10px; margin-top: 9px; background: var(--line-green); border-radius: 50%; }
+.line-box .btn { width: 100%; }
+.small { font-size: 13px; color: var(--muted); text-align: center; }
+
+/* FAQ */
+.faq { margin-top: 20px; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; padding: 16px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--font-display); color: var(--muted); }
+.faq details[open] summary::after { content: "−"; }
+.faq summary:focus-visible { outline: 3px solid var(--hazard); outline-offset: 2px; }
+.faq details p { padding-bottom: 16px; color: var(--muted); }
+
+footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); line-height: 1.8; display: grid; gap: 4px; }
+footer a { color: var(--muted); }
+
+/* Sticky CTA */
+.sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--surface); border-top: 1px solid var(--line);
+  display: flex; justify-content: center;
+}
+.sticky .btn { width: 100%; max-width: 520px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .prog-bar, .meter i { transition: none; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" id="top">
+      <svg class="frog" width="42" height="42" viewBox="0 0 64 64" aria-hidden="true">
+        <ellipse class="face" cx="32" cy="43" rx="21" ry="15"/>
+        <circle class="eye" cx="21" cy="34" r="6"/><circle class="pupil" cx="22" cy="35" r="2.6"/>
+        <circle class="eye" cx="43" cy="34" r="6"/><circle class="pupil" cx="42" cy="35" r="2.6"/>
+        <path class="helmet" d="M15 25 A17 15 0 0 1 49 25 Z"/>
+        <rect class="helmet" x="10" y="24" width="44" height="5" rx="2"/>
+        <path class="mouth" d="M25 48 Q32 53 39 48"/>
+      </svg>
+      <span>
+        <span class="brand-name">ゲンバカエル</span>
+        <span class="brand-sub">施工管理のキャリア相談</span>
+      </span>
+    </a>
+    <a class="btn btn-line btn-sm" data-line href="#line">LINEで相談</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">建築・土木の施工管理技術者へ</p>
+      <h1>施工管理を辞めるな、<br>会社を変えろ。</h1>
+      <p class="lead">その疲れ、施工管理という仕事のせいではなく、今の会社のせいかもしれません。10問・約3分の「ホワイト度チェック」で、今の職場の働きやすさを確かめましょう。</p>
+
+      <div class="board" role="img" aria-label="工事黒板。工事名：あなたの転職工事、工種：会社を変える、施工者：あなた">
+        <table>
+          <tr><th>工事名</th><td>あなたの転職工事</td></tr>
+          <tr><th>工　種</th><td>会社を変える</td></tr>
+          <tr><th>施工者</th><td id="boardWorker">あなた（建築施工管理）</td></tr>
+          <tr><th>日　付</th><td class="date" id="boardDate">2026.10</td></tr>
+        </table>
+      </div>
+
+      <div class="jobpick">
+        <span class="jobpick-label" id="jobLabel">あなたの職種</span>
+        <div class="seg" role="radiogroup" aria-labelledby="jobLabel">
+          <label><input type="radio" name="job" id="job-kenchiku" value="kenchiku" checked><span>建築施工管理</span></label>
+          <label><input type="radio" name="job" id="job-doboku" value="doboku"><span>土木施工管理</span></label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#shindan">ホワイト度チェックをはじめる</a>
+        <a class="btn btn-ghost" data-line href="#line">LINEで相談する</a>
+      </div>
+      <p class="trust">登録無料・匿名OK・今すぐ転職しない人も歓迎</p>
+    </div>
+
+    <section aria-labelledby="h-data">
+      <p class="eyebrow">国のデータで見る市場価値</p>
+      <h2 id="h-data">施工管理は「選ぶ側」です</h2>
+      <p class="sec-lead"><span id="jobName">建築施工管理技術者</span>の全国平均です。</p>
+      <div class="stats">
+        <div class="stat"><div class="k">平均年収</div><div class="v"><span id="stIncome">679.1</span><span class="u">万円</span></div><div class="s">全年齢の平均</div></div>
+        <div class="stat"><div class="k">有効求人倍率</div><div class="v"><span id="stRatio">8.62</span><span class="u">倍</span></div><div class="s" id="stRatioNote">求職者1人に約8.6件の求人</div></div>
+        <div class="stat"><div class="k">平均年齢</div><div class="v"><span id="stAge">43.4</span><span class="u">歳</span></div><div class="s">若手ほど引く手あまた</div></div>
+      </div>
+      <p class="cite">出典：厚生労働省 職業情報提供サイト（job tag）<a id="srcLink" href="https://shigoto.mhlw.go.jp/User/Occupation/Detail/21" target="_blank" rel="noopener">建築施工管理技術者</a>。年収は令和7年賃金構造基本統計調査、求人倍率は令和7年度。</p>
+    </section>
+
+    <section id="shindan" aria-labelledby="h-ky">
+      <p class="eyebrow">10問・約3分</p>
+      <h2 id="h-ky">ホワイト度チェック</h2>
+      <p class="sec-lead">休日、残業、書類、資格への支援など、施工管理の働きやすさを左右する10項目を確かめます。</p>
+
+      <div class="ky">
+        <div class="tape" aria-hidden="true"></div>
+        <div class="ky-head">
+          <div>
+            <div class="ky-title">ホワイト度チェック</div>
+            <div class="ky-job" id="kyJob">建築施工管理として診断します</div>
+          </div>
+          <div class="prog" aria-live="polite">
+            <span class="prog-track"><span class="prog-bar" id="progBar"></span></span>
+            <span>回答 <span id="prog">0 / 10</span></span>
+          </div>
+        </div>
+        <div id="qs"></div>
+        <div class="ky-foot">
+          <button class="btn btn-primary" id="run" type="button" disabled>ホワイト度を判定する</button>
+          <p class="hint" id="runHint">あと10問</p>
+        </div>
+      </div>
+
+      <div class="result" id="result" hidden aria-live="polite">
+        <div class="res-top">
+          <svg class="frog" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse class="face" cx="32" cy="43" rx="21" ry="15"/>
+            <circle class="eye" cx="21" cy="34" r="6"/><circle class="pupil" cx="22" cy="35" r="2.6"/>
+            <circle class="eye" cx="43" cy="34" r="6"/><circle class="pupil" cx="42" cy="35" r="2.6"/>
+            <path class="helmet" d="M15 25 A17 15 0 0 1 49 25 Z"/>
+            <rect class="helmet" x="10" y="24" width="44" height="5" rx="2"/>
+            <path class="mouth" d="M25 48 Q32 53 39 48"/>
+          </svg>
+          <div>
+            <span class="badge" id="lvBadge"></span>
+            <h3 class="res-title" id="lvTitle"></h3>
+          </div>
+        </div>
+        <p id="lvBody"></p>
+        <div class="meter-row">
+          <span>ホワイト度</span>
+          <span class="meter"><i id="meterBar"></i></span>
+          <span id="score"></span>
+        </div>
+        <p class="res-h">見直したいポイント</p>
+        <ul class="issues" id="issues"></ul>
+        <p class="inc" id="incText"></p>
+        <a class="btn btn-line" data-line href="#line">LINEで詳しい解説を受け取る</a>
+        <p class="small" data-line-note hidden>LINE登録の窓口は準備中です</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-why">
+      <p class="eyebrow">業界を辞める前に</p>
+      <h2 id="h-why">「会社を変えろ」と言える理由</h2>
+      <div class="reasons">
+        <div class="reason">
+          <span class="tag">2024年4月から</span>
+          <h3>建設業にも残業の上限ができました</h3>
+          <p>原則は月45時間・年360時間です。上限を守れる体制がある会社かどうかで、同じ施工管理でも働き方が大きく変わります。</p>
+        </div>
+        <div class="reason">
+          <span class="tag">資格と経験</span>
+          <h3>あなたの経験は、会社が変わっても評価されます</h3>
+          <p>施工管理の市場価値は、施工管理技士の資格と現場経験でほぼ決まります。今の会社でしか通用しないスキルではありません。</p>
+        </div>
+        <div class="reason">
+          <span class="tag">求人倍率</span>
+          <h3>求人は余っています</h3>
+          <p id="reasonRatio">建築施工管理技術者の有効求人倍率は8.62倍です。会社を選び直す余地は十分にあります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-check">
+      <p class="eyebrow">求人票の読み方</p>
+      <h2 id="h-check">ホワイト現場の5つのサイン</h2>
+      <ul class="checks">
+        <li>4週8休の「取得実績」が書いてある</li>
+        <li>1人あたりの担当現場数が書いてある。または面接で答えてくれる</li>
+        <li>工事写真や書類を、アプリやクラウドで管理している</li>
+        <li>資格手当と、受験費用の補助の両方がある</li>
+        <li>固定残業代の時間数と、超えた分の支払いが明記されている</li>
+      </ul>
+    </section>
+
+    <section id="line" aria-labelledby="h-line">
+      <p class="eyebrow">登録無料</p>
+      <h2 id="h-line">LINEで受け取れるもの</h2>
+      <div class="line-box">
+        <ul class="gets">
+          <li>ホワイト度チェックの詳しい解説</li>
+          <li>建築・土木別、年代別の年収相場表</li>
+          <li>ホワイト現場チェックリスト（完全版）</li>
+          <li>匿名のキャリア相談</li>
+        </ul>
+        <a class="btn btn-line" data-line href="#line">LINEで友だち追加する</a>
+        <p class="small">今すぐ転職しない人も歓迎です。</p>
+        <p class="small" data-line-note hidden>LINE登録の窓口は準備中です</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-faq">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="h-faq">登録の前に</h2>
+      <div class="faq">
+        <details>
+          <summary>本当に無料ですか？</summary>
+          <p>はい。求職者の方から費用をいただくことはありません。</p>
+        </details>
+        <details>
+          <summary>今すぐ転職するつもりはないのですが。</summary>
+          <p>大丈夫です。相場を知っておくだけでも、今の会社で昇給や働き方を交渉する材料になります。</p>
+        </details>
+        <details>
+          <summary>会社に知られませんか？</summary>
+          <p>LINEはニックネームのまま登録できます。相談も匿名で受け付けます。</p>
+        </details>
+        <details>
+          <summary>設備や電気の施工管理も対象ですか？</summary>
+          <p>現在は建築・土木の施工管理技術者が中心です。対象は順次広げる予定です。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>ゲンバカエル（仮称）</span>
+    <span>運営会社：準備中 ／ 有料職業紹介事業 許可番号：取得後に記載</span>
+    <span>データ出典：厚生労働省 職業情報提供サイト（job tag）<a href="https://shigoto.mhlw.go.jp/User/Occupation/Detail/21" target="_blank" rel="noopener">建築施工管理技術者</a>・<a href="https://shigoto.mhlw.go.jp/User/Occupation/Detail/23" target="_blank" rel="noopener">土木施工管理技術者</a>。年代別の年収目安は<a href="https://axxis.co.jp/magazine/58995" target="_blank" rel="noopener">AXXIS「施工管理の年収」</a>（2025年12月）より。</span>
+  </footer>
+</div>
+
+<div class="sticky">
+  <a class="btn btn-primary" id="stickyBtn" href="#shindan">3分でホワイト度チェック</a>
+</div>
+
+<script>
+(function () {
+  // LINE公式アカウントの友だち追加URL（例：https://lin.ee/xxxxxxx）を入れると、全ボタンがLINEに飛びます
+  var LINE_URL = '';
+
+  var JOBS = {
+    kenchiku: { name: '建築施工管理技術者', short: '建築', income: '679.1', ratio: '8.62', per: '約8.6件', age: '43.4', url: 'https://shigoto.mhlw.go.jp/User/Occupation/Detail/21' },
+    doboku:   { name: '土木施工管理技術者', short: '土木', income: '625', ratio: '15.74', per: '約15.7件', age: '46', url: 'https://shigoto.mhlw.go.jp/User/Occupation/Detail/23' }
+  };
+  var AGE_RANGE = { '20': [381, 508], '30': [536, 674], '40': [629, 734], '50': [690, 800] };
+  var AGE_LABEL = { '20': '20代', '30': '30代', '40': '40代', '50': '50代以上' };
+
+  var QUESTIONS = [
+    { id: 'holiday', label: '休日は4週間で何日ありますか？', note: '4週8休＝完全週休2日',
+      opts: [['8日以上', 0], ['6〜7日', 1], ['4〜5日', 2], ['3日以下', 3]],
+      issue: '休日が少ない', tip: '4週8休を実績で出せている会社もあります。求人票では「取得実績」を確認しましょう。' },
+    { id: 'overtime', label: '月の残業はだいたい何時間ですか？', note: '2024年4月から、原則の上限は月45時間',
+      opts: [['20時間未満', 0], ['20〜45時間', 1], ['45〜80時間', 2], ['80時間超', 3]],
+      issue: '残業が上限の原則を超えている', tip: '月45時間を超える残業が続くなら、会社の体制を見直すべきサインです。' },
+    { id: 'pay', label: '残業代はどう払われていますか？',
+      opts: [['働いた分が全額出る', 0], ['固定残業代あり・超えた分も出る', 1], ['固定残業代あり・超えた分は出ない', 3], ['よくわからない', 2]],
+      issue: '残業代の払われ方があいまい', tip: '固定残業代は「何時間分か」と「超えた分の支払い」が明記されているかが分かれ目です。' },
+    { id: 'paper', label: '現場が終わってから書類をやる日は？',
+      opts: [['ほぼない', 0], ['週1〜2日', 1], ['週3〜4日', 2], ['ほぼ毎日', 3]],
+      issue: '書類仕事が勤務時間の外にあふれている', tip: '書類や写真をクラウドで回している会社なら、現場で片づく量が変わります。' },
+    { id: 'sites', label: '同時に担当している現場はいくつですか？',
+      opts: [['1現場', 0], ['2現場', 1], ['3現場', 2], ['4現場以上', 3]],
+      issue: '担当現場が多すぎる', tip: '1人あたりの担当現場数は、面接で必ず聞いておきたい数字です。' },
+    { id: 'digital', label: '工事写真や書類の管理方法は？',
+      opts: [['アプリ・クラウドで現場から完結', 0], ['一部だけデジタル', 1], ['紙とExcelが中心', 2], ['手書きが多い', 3]],
+      issue: '書類と写真の管理がアナログ', tip: 'ICTやクラウドに投資している会社なら、監督1人あたりの負担を減らせる可能性があります。' },
+    { id: 'leave', label: '有給休暇は取れますか？',
+      opts: [['希望日に取れる', 0], ['繁忙期以外なら取れる', 1], ['取りづらい雰囲気', 2], ['ほぼ取れない', 3]],
+      issue: '有給が取れない', tip: '有給の取りやすさは、会社によって大きく差が出る項目です。' },
+    { id: 'license', label: '資格への支援はありますか？',
+      opts: [['受験費用の補助と資格手当の両方', 0], ['どちらか一方', 1], ['どちらもない', 3]],
+      issue: '資格への支援がない', tip: '1級を取っても手当が出ない会社では、資格の価値が給料に反映されません。' },
+    { id: 'age', label: 'あなたの年代は？', scored: false,
+      opts: [['20代', '20'], ['30代', '30'], ['40代', '40'], ['50代以上', '50']] },
+    { id: 'income', label: '今の年収はどのくらいですか？', scored: false,
+      opts: [['400万円未満', 350], ['400〜500万円', 450], ['500〜600万円', 550], ['600〜700万円', 650], ['700万円以上', 750]] }
+  ];
+  var SCORED = QUESTIONS.filter(function (q) { return q.scored !== false; });
+  var MAX = SCORED.length * 3 + 3;
+
+  var LEVELS = {
+    1: { badge: '判定A', title: '働きやすい職場です', body: '今の会社は恵まれている方です。相場を知っておくと、昇給の交渉にも使えます。' },
+    2: { badge: '判定B', title: '改善の余地がある職場です', body: 'いくつか気になる点があります。同じ施工管理でも、もっと条件の良い会社は見つかります。' },
+    3: { badge: '判定C', title: '見直したい点が多い職場です', body: 'しんどさの原因は、あなたではなく会社の体制かもしれません。業界を離れる前に、会社を選び直す価値があります。' },
+    4: { badge: '判定D', title: '早めに動いてもいい職場です', body: '施工管理という仕事そのものが嫌になってしまう前に、まずは相場と選択肢を知ってください。' }
+  };
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var job = 'kenchiku';
+  var answers = {};
+  function $(id) { return document.getElementById(id); }
+
+  function setLine(a) {
+    if (LINE_URL) { a.href = LINE_URL; a.target = '_blank'; a.rel = 'noopener'; }
+    else { a.href = '#line'; a.removeAttribute('target'); }
+  }
+  document.querySelectorAll('[data-line]').forEach(setLine);
+  document.querySelectorAll('[data-line-note]').forEach(function (n) { n.hidden = !!LINE_URL; });
+
+  // 計測：LINEボタンのクリック（どのボタンからか）
+  var track = window.track || function () {};
+  var lastLevel = '';
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-line]');
+    if (!a) return;
+    var where = a.closest('#result') ? 'result' : a.closest('.sticky') ? 'sticky' : a.closest('#line') ? 'line_section' : a.closest('.top') ? 'header' : 'hero';
+    track('line_click', { position: where, job: job, level: lastLevel });
+  });
+
+  var d = new Date();
+  $('boardDate').textContent = d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0');
+
+  function renderJob() {
+    var J = JOBS[job];
+    $('boardWorker').textContent = 'あなた（' + J.short + '施工管理）';
+    $('jobName').textContent = J.name;
+    $('stIncome').textContent = J.income;
+    $('stRatio').textContent = J.ratio;
+    $('stRatioNote').textContent = '求職者1人に' + J.per + 'の求人';
+    $('stAge').textContent = J.age;
+    $('srcLink').textContent = J.name;
+    $('srcLink').href = J.url;
+    $('reasonRatio').textContent = J.name + 'の有効求人倍率は' + J.ratio + '倍です。会社を選び直す余地は十分にあります。';
+    $('kyJob').textContent = J.short + '施工管理として診断します';
+  }
+  document.querySelectorAll('input[name="job"]').forEach(function (inp) {
+    inp.addEventListener('change', function () { if (inp.checked) { job = inp.value; renderJob(); track('job_select', { job: job }); } });
+  });
+
+  var qs = $('qs');
+  QUESTIONS.forEach(function (q, i) {
+    var fs = document.createElement('fieldset');
+    fs.className = 'q';
+    var lg = document.createElement('legend');
+    var num = document.createElement('span');
+    num.className = 'qn';
+    num.textContent = 'Q' + (i + 1);
+    var tx = document.createElement('span');
+    tx.textContent = q.label;
+    lg.append(num, tx);
+    fs.append(lg);
+    if (q.note) {
+      var p = document.createElement('p');
+      p.className = 'qnote';
+      p.textContent = q.note;
+      fs.append(p);
+    }
+    var opts = document.createElement('div');
+    opts.className = 'opts';
+    q.opts.forEach(function (o, j) {
+      var lab = document.createElement('label');
+      lab.className = 'opt';
+      var inp = document.createElement('input');
+      inp.type = 'radio';
+      inp.name = q.id;
+      inp.id = q.id + '-' + j;
+      inp.value = String(j);
+      var sp = document.createElement('span');
+      sp.textContent = o[0];
+      lab.append(inp, sp);
+      opts.append(lab);
+    });
+    fs.append(opts);
+    qs.append(fs);
+  });
+
+  function updateProgress() {
+    var n = Object.keys(answers).length;
+    var total = QUESTIONS.length;
+    $('prog').textContent = n + ' / ' + total;
+    $('progBar').style.width = (n / total * 100) + '%';
+    $('run').disabled = n < total;
+    $('runHint').textContent = n < total ? 'あと' + (total - n) + '問' : 'すべて回答しました';
+  }
+  qs.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.type !== 'radio') return;
+    if (!Object.keys(answers).length) track('check_start', { job: job });
+    answers[t.name] = Number(t.value);
+    updateProgress();
+  });
+
+  function optVal(id) {
+    var q = QUESTIONS.filter(function (x) { return x.id === id; })[0];
+    return q.opts[answers[id]][1];
+  }
+
+  $('run').addEventListener('click', function () {
+    var score = 0;
+    var items = [];
+    SCORED.forEach(function (q) {
+      var s = q.opts[answers[q.id]][1];
+      score += s;
+      items.push({ s: s, issue: q.issue, tip: q.tip });
+    });
+    var age = optVal('age');
+    var inc = optVal('income');
+    var lo = AGE_RANGE[age][0], hi = AGE_RANGE[age][1];
+    var range = AGE_LABEL[age] + 'の施工管理の年収目安（' + lo + '〜' + hi + '万円）';
+    var incScore, incText;
+    if (inc < lo) { incScore = 3; incText = range + 'を下回っている可能性があります。'; }
+    else if (inc <= hi) { incScore = 1; incText = range + 'の範囲内です。'; }
+    else { incScore = 0; incText = range + 'を上回っています。'; }
+    score += incScore;
+    items.push({ s: incScore, issue: '年収が年代の目安より低い', tip: incText });
+
+    var r = score / MAX;
+    var lv = r < 0.25 ? 1 : r < 0.45 ? 2 : r < 0.65 ? 3 : 4;
+    var L = LEVELS[lv];
+    var top = items.filter(function (x) { return x.s >= 2; })
+      .sort(function (a, b) { return b.s - a.s; })
+      .slice(0, 3);
+
+    var res = $('result');
+    res.className = 'result lv' + lv;
+    res.hidden = false;
+    $('lvBadge').textContent = L.badge;
+    $('lvTitle').textContent = L.title;
+    $('lvBody').textContent = L.body;
+    var white = Math.round((1 - r) * 100);
+    $('score').textContent = white + ' / 100';
+    lastLevel = 'ABCD'.charAt(lv - 1);
+    track('check_complete', { job: job, level: lastLevel, white_score: white, age: optVal('age') });
+    $('incText').textContent = 'あなたの年収は、' + incText;
+
+    var ul = $('issues');
+    ul.replaceChildren();
+    if (!top.length) {
+      var li0 = document.createElement('li');
+      var b0 = document.createElement('strong');
+      b0.textContent = '大きく見直したいポイントは見つかりませんでした';
+      li0.append(b0);
+      ul.append(li0);
+    } else {
+      top.forEach(function (x) {
+        var li = document.createElement('li');
+        var b = document.createElement('strong');
+        b.textContent = x.issue;
+        var s = document.createElement('span');
+        s.textContent = x.tip;
+        li.append(b, s);
+        ul.append(li);
+      });
+    }
+
+    var bar = $('meterBar');
+    bar.style.width = '0%';
+    void bar.offsetWidth;
+    bar.style.width = white + '%';
+
+    var sb = $('stickyBtn');
+    sb.textContent = 'LINEで結果の解説を受け取る';
+    sb.className = 'btn btn-line';
+    sb.setAttribute('data-line', '');
+    setLine(sb);
+
+    res.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+
+  renderJob();
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
