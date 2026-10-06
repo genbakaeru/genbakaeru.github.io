@@ -14,3 +14,9 @@
 - `check_complete`：判定（job, level A〜D, white_score, age）
 - `line_click`：LINEボタンのクリック（position, job, level）
 - `code_copy`：合言葉（判定A〜D）のコピー（level）
+
+## 内部アクセスの除外
+- `https://genbakaeru.github.io/?internal=1` を一度開くと、そのブラウザは「内部」として記録される（画面右上に「内部アクセス（GA除外）」と表示）
+- 以後のアクセスはGA4に `traffic_type=internal` 付きで送られ、GA4の「内部トラフィック」データフィルタで除外できる
+- 解除は `https://genbakaeru.github.io/?internal=0`
+- ブラウザごと・端末ごとに1回必要（LINEアプリ内ブラウザも別扱い）

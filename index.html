@@ -17,7 +17,27 @@
 <script>
   // ===== 計測設定 =====
   // GA4の測定ID（例：G-XXXXXXXXXX）を入れると計測が始まる。空のままなら何も読み込まない
-  window.GA_ID = '';
+  window.GA_ID = 'G-0807E9G4BD';
+
+  // ===== 内部アクセスの判定 =====
+  // ?internal=1 で開くと、このブラウザを「内部」として記録（以後のアクセスは traffic_type=internal で送信）
+  // ?internal=0 で解除。GA4の「内部トラフィック」データフィルタで除外する
+  window.IS_INTERNAL = false;
+  (function () {
+    var KEY = 'gk_internal';
+    try {
+      var p = new URLSearchParams(location.search);
+      if (p.get('internal') === '1') localStorage.setItem(KEY, '1');
+      if (p.get('internal') === '0') localStorage.removeItem(KEY);
+      window.IS_INTERNAL = localStorage.getItem(KEY) === '1';
+      if (p.has('internal') && history.replaceState) {
+        p.delete('internal');
+        var q = p.toString();
+        history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+      }
+    } catch (e) {}
+  })();
+
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   if (window.GA_ID) {
@@ -26,8 +46,9 @@
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
     document.head.appendChild(s);
     gtag('js', new Date());
-    gtag('config', window.GA_ID);
+    gtag('config', window.GA_ID, window.IS_INTERNAL ? { traffic_type: 'internal' } : {});
   }
+  dataLayer.push({ traffic_type: window.IS_INTERNAL ? 'internal' : 'external' });
   // ページ内のイベントは dataLayer にも積むので、後からGTMやMetaピクセルに載せ替えられる
   window.track = function (name, params) {
     params = params || {};
@@ -255,6 +276,11 @@ h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 
 .result .code-row .btn { width: auto; }
 .code-note { font-size: 13px; color: var(--muted); line-height: 1.7; }
 .gets .kw { display: block; font-size: 13px; color: var(--muted); }
+.internal-tag {
+  position: fixed; top: calc(8px + env(safe-area-inset-top, 0px)); right: 8px; z-index: 20;
+  background: var(--ink); color: var(--bg); font-size: 11px; font-weight: 700;
+  padding: 4px 8px; border-radius: 4px; pointer-events: none;
+}
 
 /* Reasons / checklist */
 .reasons { display: grid; gap: 0; margin-top: 20px; }
@@ -505,6 +531,7 @@ footer a { color: var(--muted); }
     <span>ゲンバカエル（仮称）</span>
     <span>運営会社：準備中 ／ 有料職業紹介事業 許可番号：取得後に記載</span>
     <span>データ出典：厚生労働省 職業情報提供サイト（job tag）<a href="https://shigoto.mhlw.go.jp/User/Occupation/Detail/21" target="_blank" rel="noopener">建築施工管理技術者</a>・<a href="https://shigoto.mhlw.go.jp/User/Occupation/Detail/23" target="_blank" rel="noopener">土木施工管理技術者</a>。年代別の年収目安は<a href="https://axxis.co.jp/magazine/58995" target="_blank" rel="noopener">AXXIS「施工管理の年収」</a>（2025年12月）より。</span>
+    <span>アクセス解析について：このサイトは、利用状況を把握するためにGoogleアナリティクスを使用しています。Cookieなどを使って閲覧ページや操作の情報を収集し、Googleに送信しますが、氏名などの個人を特定する情報は含みません。データの取り扱いは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Googleのポリシー</a>をご覧ください。</span>
   </footer>
 </div>
 
@@ -737,6 +764,14 @@ footer a { color: var(--muted); }
 
     res.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   });
+
+  // 内部アクセス中の目印（自分の端末でだけ表示）
+  if (window.IS_INTERNAL) {
+    var tag = document.createElement('div');
+    tag.className = 'internal-tag';
+    tag.textContent = '内部アクセス（GA除外）';
+    document.body.append(tag);
+  }
 
   // 合言葉のコピー
   $('copyCode').addEventListener('click', function () {
