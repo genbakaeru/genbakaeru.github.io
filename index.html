@@ -248,6 +248,13 @@ h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 
 .issues span { font-size: 14px; color: var(--muted); line-height: 1.7; }
 .inc { font-size: 14px; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 6px; }
 .result .btn { width: 100%; }
+.code-box { border: 2px dashed var(--line-green); border-radius: 6px; padding: 14px 16px; display: grid; gap: 6px; }
+.code-label { font-size: 13px; font-weight: 700; color: var(--muted); }
+.code-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.code { font-family: var(--font-display); font-size: 26px; letter-spacing: .08em; user-select: all; }
+.result .code-row .btn { width: auto; }
+.code-note { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.gets .kw { display: block; font-size: 13px; color: var(--muted); }
 
 /* Reasons / checklist */
 .reasons { display: grid; gap: 0; margin-top: 20px; }
@@ -407,6 +414,14 @@ footer a { color: var(--muted); }
         <p class="res-h">見直したいポイント</p>
         <ul class="issues" id="issues"></ul>
         <p class="inc" id="incText"></p>
+        <div class="code-box">
+          <p class="code-label">LINEで送る合言葉</p>
+          <div class="code-row">
+            <span class="code" id="lineCode">判定A</span>
+            <button class="btn btn-ghost btn-sm" type="button" id="copyCode">コピー</button>
+          </div>
+          <p class="code-note">友だち追加のあと、この合言葉を送ると、あなたの結果の詳しい解説が届きます。</p>
+        </div>
         <a class="btn btn-line" data-line href="#line">LINEで詳しい解説を受け取る</a>
         <p class="small" data-line-note hidden>LINE登録の窓口は準備中です</p>
       </div>
@@ -451,10 +466,10 @@ footer a { color: var(--muted); }
       <h2 id="h-line">LINEで受け取れるもの</h2>
       <div class="line-box">
         <ul class="gets">
-          <li>ホワイト度チェックの詳しい解説</li>
-          <li>建築・土木別、年代別の年収相場表</li>
-          <li>ホワイト現場チェックリスト（完全版）</li>
-          <li>匿名のキャリア相談</li>
+          <li><div>ホワイト度チェックの詳しい解説<span class="kw">判定（例：判定B）を送る</span></div></li>
+          <li><div>建築・土木別、年代別の年収相場表<span class="kw">「年収」と送る</span></div></li>
+          <li><div>ホワイト現場チェックリスト（完全版）<span class="kw">「チェックリスト」と送る</span></div></li>
+          <li><div>匿名のキャリア相談<span class="kw">「相談」と送る</span></div></li>
         </ul>
         <a class="btn btn-line" data-line href="#line">LINEで友だち追加する</a>
         <p class="small">今すぐ転職しない人も歓迎です。</p>
@@ -500,7 +515,7 @@ footer a { color: var(--muted); }
 <script>
 (function () {
   // LINE公式アカウントの友だち追加URL（例：https://lin.ee/xxxxxxx）を入れると、全ボタンがLINEに飛びます
-  var LINE_URL = '';
+  var LINE_URL = 'https://line.me/R/ti/p/%40419zlydx';
 
   var JOBS = {
     kenchiku: { name: '建築施工管理技術者', short: '建築', income: '679.1', ratio: '8.62', per: '約8.6件', age: '43.4', url: 'https://shigoto.mhlw.go.jp/User/Occupation/Detail/21' },
@@ -686,6 +701,8 @@ footer a { color: var(--muted); }
     lastLevel = 'ABCD'.charAt(lv - 1);
     track('check_complete', { job: job, level: lastLevel, white_score: white, age: optVal('age') });
     $('incText').textContent = 'あなたの年収は、' + incText;
+    $('lineCode').textContent = L.badge;
+    $('copyCode').textContent = 'コピー';
 
     var ul = $('issues');
     ul.replaceChildren();
@@ -719,6 +736,26 @@ footer a { color: var(--muted); }
     setLine(sb);
 
     res.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+
+  // 合言葉のコピー
+  $('copyCode').addEventListener('click', function () {
+    var btn = this;
+    var text = $('lineCode').textContent;
+    function selectText() {
+      var range = document.createRange();
+      range.selectNodeContents($('lineCode'));
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = '選択しました';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { btn.textContent = 'コピーしました'; }, selectText);
+    } else {
+      selectText();
+    }
+    track('code_copy', { level: lastLevel });
   });
 
   renderJob();
